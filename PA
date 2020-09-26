@@ -1,0 +1,39 @@
+set cli config-output-format set
+
+show running security-policy
+
+show running security-policy-addresses
+
+
+
+
+
+show config pushed-shared-policy
+
+show config pushed-template
+
+
+Device
+##########
+
+show config running // see general configuration
+
+show config pushed-shared-policy // see security rules and shared objects which will not be shown when issuing "show config running"
+
+show session id <id_number> // show session info, session id number can be looked in GUI->Monitoring
+
+set system setting target-vsys <vsys> // this command will help to switch between different vSYS
+
+show session all filter ssl-decrypt   [yes|no]  source <ip> destination <ip> // this command will help to find active sessions filtered by ssl-decryption status
+
+show system setting ssl-decrypt exclude-cache | match <ip> // this command will help you to verify if we have "cipher mismatch" issue between internal clients and external websites 
+
+
+Panorama
+##########
+
+show device-group <device-group> pre-rulebase security rules <security_rule> // to show interesting security rule
+
+show shared address-group <address_group> // show Address objects inside interesting Address Group object
+
+show shared service-group <service_group> // show Service objects inside interesting Service Group object
